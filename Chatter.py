@@ -22,7 +22,6 @@ import os
 from dotenv import load_dotenv
 import base64
 
-os.environ["OPENAI_API_KEY"] = "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"
 
 #Background images add function
 def add_bg_from_local(image_file):
@@ -133,7 +132,7 @@ def main():
             docs = vectorstore.similarity_search(query=query, k=3)
 
             # Use the Chain of Thought model to generate a response
-            llm = OpenAI(temperature=0)
+            llm = OpenAI(temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
             chain = load_qa_chain(llm=llm, chain_type="stuff")
 
             # Generate the response using the Chain of Thought model
