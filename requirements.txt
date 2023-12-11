@@ -8,3 +8,4 @@ altair<5
 googletrans==3.1.0a0
 streamlit_extras==0.3.5
 openai==0.27.10
+tiktoken==0.4.0
