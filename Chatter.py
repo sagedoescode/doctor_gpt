@@ -8,7 +8,7 @@ from langchain.vectorstores import FAISS
 from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
-
+import openai
 from langchain.prompts import PromptTemplate
 from langchain.prompts.chat import (
     ChatPromptTemplate,
@@ -22,7 +22,7 @@ import os
 from dotenv import load_dotenv
 import base64
 
-
+openai.api_key = st.secrets["api_key"]
 #Background images add function
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
@@ -132,7 +132,7 @@ def main():
             docs = vectorstore.similarity_search(query=query, k=3)
 
             # Use the Chain of Thought model to generate a response
-            llm = OpenAI(temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
+            llm = OpenAI(temperature=0, openai.api_key)
             chain = load_qa_chain(llm=llm, chain_type="stuff")
 
             # Generate the response using the Chain of Thought model
