@@ -1,3 +1,3 @@
-# doctor_gpt
-Langchain pdf medical test analysis chatbot
-You can try it here! med-ai.streamlit.app
+# med-ai
+Langchain PDF Chatbot for medical test analysis 
+- You can try it here! med-ai.streamlit.app
