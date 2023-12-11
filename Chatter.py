@@ -8,7 +8,7 @@ from langchain.vectorstores import FAISS
 from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
-import openai
+
 from langchain.prompts import PromptTemplate
 from langchain.prompts.chat import (
     ChatPromptTemplate,
@@ -22,7 +22,7 @@ import os
 from dotenv import load_dotenv
 import base64
 
-openai.api_key = st.secrets["api_key"]
+api_key = st.secrets["api_key"]
 #Background images add function
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
