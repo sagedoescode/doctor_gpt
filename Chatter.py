@@ -132,7 +132,7 @@ def main():
             docs = vectorstore.similarity_search(query=query, k=3)
 
             # Use the Chain of Thought model to generate a response
-            llm = OpenAI(temperature=0, api_key)
+            llm = OpenAI(temperature=0, openai.api_key = st.secrets["api_key"])
             chain = load_qa_chain(llm=llm, chain_type="stuff")
 
             # Generate the response using the Chain of Thought model
